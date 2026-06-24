@@ -40,7 +40,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id",nullable = false)
-    private User category;
+    private Category category;
 
     @ManyToMany
     @JoinTable(

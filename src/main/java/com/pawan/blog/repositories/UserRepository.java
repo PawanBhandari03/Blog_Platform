@@ -1,6 +1,6 @@
 package com.pawan.blog.repositories;
 
-import org.apache.catalina.User;
+import com.pawan.blog.domain.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
