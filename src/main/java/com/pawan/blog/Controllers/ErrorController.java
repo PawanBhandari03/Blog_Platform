@@ -15,39 +15,62 @@ import org.springframework.web.bind.annotation.RestController;
 public class ErrorController {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity handleException(Exception ex){
-        log.error("Caught exception",ex);
+    public ResponseEntity<ApiErrorResponse> handleException(Exception ex) {
+        log.error("Caught exception", ex);
+
         ApiErrorResponse error = ApiErrorResponse.builder()
                 .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                 .message("An unexpected error occurred")
                 .build();
-        return new ResponseEntity<>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+
+        return new ResponseEntity<>(
+                error,
+                HttpStatus.INTERNAL_SERVER_ERROR
+        );
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ApiErrorResponse> handleIllegalArgumentException(IllegalArgumentException ex) {
+    public ResponseEntity<ApiErrorResponse> handleIllegalArgumentException(
+            IllegalArgumentException ex) {
+
         ApiErrorResponse error = ApiErrorResponse.builder()
-                .status(HttpStatus.BAD_GATEWAY.value())
+                .status(HttpStatus.BAD_REQUEST.value())
                 .message(ex.getMessage())
                 .build();
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(
+                error,
+                HttpStatus.BAD_REQUEST
+        );
     }
 
     @ExceptionHandler(IllegalStateException.class)
-    public ResponseEntity<ApiErrorResponse> handleStateArgumentException(IllegalArgumentException ex) {
+    public ResponseEntity<ApiErrorResponse> handleIllegalStateException(
+            IllegalStateException ex) {
+
         ApiErrorResponse error = ApiErrorResponse.builder()
                 .status(HttpStatus.CONFLICT.value())
                 .message(ex.getMessage())
                 .build();
-        return new ResponseEntity<>(error, HttpStatus.CONFLICT);
+
+        return new ResponseEntity<>(
+                error,
+                HttpStatus.CONFLICT
+        );
     }
 
-    @ExceptionHandler(IllegalStateException.class)
-    public ResponseEntity<ApiErrorResponse> handleStateArgumentException(BadCredentialsException ex){
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ApiErrorResponse> handleBadCredentialsException(
+            BadCredentialsException ex) {
+
         ApiErrorResponse error = ApiErrorResponse.builder()
                 .status(HttpStatus.UNAUTHORIZED.value())
                 .message("Incorrect username or password")
                 .build();
-        return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
+
+        return new ResponseEntity<>(
+                error,
+                HttpStatus.UNAUTHORIZED
+        );
     }
 }
