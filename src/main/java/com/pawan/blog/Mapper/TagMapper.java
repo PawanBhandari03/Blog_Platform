@@ -1,6 +1,6 @@
 package com.pawan.blog.Mapper;
 
-import com.pawan.blog.domain.dtos.TagResponse;
+import com.pawan.blog.domain.dtos.TagDto;
 import com.pawan.blog.domain.entities.Post;
 import com.pawan.blog.domain.entities.PostStatus;
 import com.pawan.blog.domain.entities.Tag;
@@ -9,13 +9,12 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 
-import java.util.List;
 import java.util.Set;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface TagMapper {
     @Mapping(target = "postCount", source = "posts", qualifiedByName = "calculatePostCount")
-    TagResponse toTagResponse(Tag tag);
+    TagDto toTagResponse(Tag tag);
 
     @Named("calculatePostCount")
     default Integer calculatePostCount(Set<Post> posts){
