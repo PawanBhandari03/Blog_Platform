@@ -4,10 +4,7 @@ import com.pawan.blog.Services.CategoryService;
 import com.pawan.blog.Services.PostService;
 import com.pawan.blog.Services.TagService;
 import com.pawan.blog.domain.dtos.CreateTagRequest;
-import com.pawan.blog.domain.entities.Category;
-import com.pawan.blog.domain.entities.Post;
-import com.pawan.blog.domain.entities.PostStatus;
-import com.pawan.blog.domain.entities.Tag;
+import com.pawan.blog.domain.entities.*;
 import com.pawan.blog.repositories.PostRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -51,5 +48,10 @@ public class PostServiceImpl implements PostService {
             );
         }
         return postRepository.findAllByStatus(PostStatus.PUBLISHED);
+    }
+
+    @Override
+    public List<Post> getDraftPosts(User user) {
+        return postRepository.findAllByAuthorAndStatus(user, PostStatus.DRAFT);
     }
 }
