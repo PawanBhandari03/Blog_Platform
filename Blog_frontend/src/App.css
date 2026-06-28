@@ -1,0 +1,459 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───── CSS Variables: Light Theme ───── */
+:root {
+  --bg-page: #f0f4ff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --border-card: #e0e7ff;
+  --border-card-hover: #c7d2fe;
+  --shadow-card: 0 1px 3px rgba(99, 102, 241, 0.04);
+  --shadow-card-hover: 0 8px 30px rgba(99, 102, 241, 0.08);
+
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-heading: #1e293b;
+
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: #eef2ff;
+  --accent-border: #c7d2fe;
+  --accent-text: #4f46e5;
+
+  --bg-input: #ffffff;
+  --border-input: #e0e7ff;
+  --text-input: #1e293b;
+  --placeholder-input: #94a3b8;
+
+  --bg-nav: #ffffff;
+  --border-nav: #e0e7ff;
+  --nav-link: #64748b;
+  --nav-link-active: #4f46e5;
+  --nav-link-hover: #4f46e5;
+
+  --bg-toolbar: #eef2ff;
+  --border-toolbar: #e0e7ff;
+  --divider-color: #c7d2fe;
+
+  --bg-error: #fef2f2;
+  --border-error: #fecaca;
+  --text-error: #dc2626;
+
+  --bg-chip-accent: #eef2ff;
+  --text-chip-accent: #4338ca;
+  --bg-chip: #f1f5f9;
+  --text-chip: #475569;
+
+  --bg-tag-active: #e0e7ff;
+  --text-tag-active: #4338ca;
+  --ring-tag-active: #a5b4fc;
+  --bg-tag: #ffffff;
+  --text-tag: #64748b;
+  --ring-tag: #e2e8f0;
+
+  --bg-skeleton-1: #e0e7ff;
+  --bg-skeleton-2: #eef2ff;
+
+  --bg-table-header: #eef2ff;
+  --text-table-header: #4f46e5;
+  --border-table: #e0e7ff;
+  --bg-table-hover: #f5f3ff;
+  --text-table: #475569;
+
+  --bg-modal: #ffffff;
+  --border-modal: #e0e7ff;
+
+  --bg-orb-1: #c7d2fe;
+  --bg-orb-2: #bfdbfe;
+  --orb-opacity: 0.3;
+
+  --scrollbar-track: #f0f4ff;
+  --scrollbar-thumb: #93c5fd;
+  --scrollbar-thumb-hover: #60a5fa;
+
+  --btn-secondary-bg: #eef2ff;
+  --btn-secondary-text: #4f46e5;
+  --btn-secondary-border: #c7d2fe;
+  --btn-secondary-hover-bg: #e0e7ff;
+  --btn-secondary-hover-border: #a5b4fc;
+
+  --avatar-ring: rgba(79, 70, 229, 0.2);
+  --avatar-glow: rgba(79, 70, 229, 0.08);
+}
+
+/* ───── CSS Variables: Dark Theme ───── */
+.dark {
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #1e293b;
+  --border-card: rgba(255, 255, 255, 0.06);
+  --border-card-hover: rgba(99, 102, 241, 0.2);
+  --shadow-card: none;
+  --shadow-card-hover: 0 8px 32px rgba(99, 102, 241, 0.08);
+
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --text-heading: #f1f5f9;
+
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-light: rgba(99, 102, 241, 0.1);
+  --accent-border: rgba(99, 102, 241, 0.2);
+  --accent-text: #818cf8;
+
+  --bg-input: rgba(255, 255, 255, 0.05);
+  --border-input: rgba(255, 255, 255, 0.1);
+  --text-input: #e2e8f0;
+  --placeholder-input: #64748b;
+
+  --bg-nav: #0f172a;
+  --border-nav: rgba(255, 255, 255, 0.06);
+  --nav-link: #94a3b8;
+  --nav-link-active: #818cf8;
+  --nav-link-hover: #a5b4fc;
+
+  --bg-toolbar: rgba(255, 255, 255, 0.04);
+  --border-toolbar: rgba(255, 255, 255, 0.06);
+  --divider-color: rgba(255, 255, 255, 0.1);
+
+  --bg-error: rgba(239, 68, 68, 0.1);
+  --border-error: rgba(239, 68, 68, 0.2);
+  --text-error: #f87171;
+
+  --bg-chip-accent: rgba(99, 102, 241, 0.15);
+  --text-chip-accent: #a5b4fc;
+  --bg-chip: rgba(255, 255, 255, 0.05);
+  --text-chip: #cbd5e1;
+
+  --bg-tag-active: rgba(99, 102, 241, 0.15);
+  --text-tag-active: #a5b4fc;
+  --ring-tag-active: rgba(99, 102, 241, 0.3);
+  --bg-tag: rgba(255, 255, 255, 0.05);
+  --text-tag: #94a3b8;
+  --ring-tag: rgba(255, 255, 255, 0.06);
+
+  --bg-skeleton-1: rgba(255, 255, 255, 0.04);
+  --bg-skeleton-2: rgba(255, 255, 255, 0.08);
+
+  --bg-table-header: rgba(99, 102, 241, 0.08);
+  --text-table-header: #c7d2fe;
+  --border-table: rgba(255, 255, 255, 0.04);
+  --bg-table-hover: rgba(99, 102, 241, 0.04);
+  --text-table: #cbd5e1;
+
+  --bg-modal: #1e293b;
+  --border-modal: rgba(255, 255, 255, 0.08);
+
+  --bg-orb-1: #6366f1;
+  --bg-orb-2: #3b82f6;
+  --orb-opacity: 0.1;
+
+  --scrollbar-track: #0f172a;
+  --scrollbar-thumb: rgba(99, 102, 241, 0.4);
+  --scrollbar-thumb-hover: rgba(99, 102, 241, 0.6);
+
+  --btn-secondary-bg: #1e293b;
+  --btn-secondary-text: #c7d2fe;
+  --btn-secondary-border: rgba(99, 102, 241, 0.2);
+  --btn-secondary-hover-bg: #1e293b;
+  --btn-secondary-hover-border: rgba(99, 102, 241, 0.4);
+
+  --avatar-ring: rgba(99, 102, 241, 0.3);
+  --avatar-glow: rgba(99, 102, 241, 0.15);
+}
+
+/* ───── Global Foundation ───── */
+html, body, #root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+}
+
+/* ───── Custom Scrollbar ───── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ───── Card Styles ───── */
+.theme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-card);
+}
+
+.theme-card:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ───── Input Styles ───── */
+.theme-input {
+  background: var(--bg-input) !important;
+  border: 1.5px solid var(--border-input) !important;
+  color: var(--text-input) !important;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.theme-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+.theme-input::placeholder {
+  color: var(--placeholder-input) !important;
+}
+
+/* ───── Theme Text Utilities ───── */
+.text-theme-heading { color: var(--text-heading); }
+.text-theme-primary { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-muted { color: var(--text-muted); }
+.text-theme-nav-link { color: var(--nav-link); }
+.text-theme-nav-link:hover { color: var(--nav-link-hover); }
+.text-theme-nav-link-active { color: var(--nav-link-active); }
+
+.bg-theme-chip-accent { background: var(--bg-chip-accent); color: var(--text-chip-accent); }
+.bg-theme-chip { background: var(--bg-chip); color: var(--text-chip); }
+
+.tag-active {
+  background: var(--bg-tag-active) !important;
+  color: var(--text-tag-active) !important;
+  box-shadow: 0 0 0 1px var(--ring-tag-active) !important;
+}
+
+.tag-default {
+  background: var(--bg-tag) !important;
+  color: var(--text-tag) !important;
+  box-shadow: 0 0 0 1px var(--ring-tag) !important;
+}
+.tag-default:hover {
+  background: var(--bg-tag-active) !important;
+  color: var(--text-tag-active) !important;
+}
+
+/* ───── Accent Text ───── */
+.accent-text {
+  color: var(--accent-text);
+}
+
+.accent-text-brand {
+  color: var(--accent-text);
+  font-weight: 800;
+}
+
+/* ───── Buttons ───── */
+.btn-accent {
+  background: var(--accent);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+}
+
+.btn-accent:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-accent-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
+  transition: all 0.3s ease;
+}
+
+.btn-accent-secondary:hover {
+  background: var(--btn-secondary-hover-bg);
+  border-color: var(--btn-secondary-hover-border);
+}
+
+/* ───── Theme Toggle Button ───── */
+.theme-toggle {
+  background: var(--accent-light);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: white;
+  transform: rotate(15deg);
+}
+
+/* ───── Animations ───── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.skeleton-loading {
+  background: linear-gradient(90deg, var(--bg-skeleton-1) 25%, var(--bg-skeleton-2) 50%, var(--bg-skeleton-1) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+/* ───── Glow Ring ───── */
+.glow-ring {
+  box-shadow: 0 0 0 2px var(--avatar-ring), 0 0 10px var(--avatar-glow);
+}
+
+/* ───── Decorative Background Orb ───── */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: var(--orb-opacity);
+  pointer-events: none;
+}
+
+.bg-orb-purple {
+  background: var(--bg-orb-1);
+}
+
+.bg-orb-blue {
+  background: var(--bg-orb-2);
+}
+
+/* ───── ProseMirror Editor ───── */
+.ProseMirror {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--text-heading);
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-heading);
+  }
+
+  h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+    color: var(--text-heading);
+  }
+
+  ul {
+    padding-left: 1.5em;
+    list-style-type: disc;
+  }
+
+  ol {
+    padding-left: 1.5em;
+    list-style-type: decimal;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
+
+  ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.5em;
+  }
+
+  p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+/* ───── Table overrides ───── */
+table th {
+  background: var(--bg-table-header) !important;
+  color: var(--text-table-header) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+table tr {
+  border-bottom: 1px solid var(--border-table);
+  transition: background 0.2s ease;
+}
+
+table tr:hover {
+  background: var(--bg-table-hover);
+}
+
+table td {
+  color: var(--text-table);
+}
+
+/* ───── Modal styling ───── */
+[role="dialog"] {
+  background: var(--bg-modal) !important;
+  border: 1px solid var(--border-modal);
+}
+
+/* ───── NavBar border ───── */
+nav {
+  border-color: var(--border-nav) !important;
+}
