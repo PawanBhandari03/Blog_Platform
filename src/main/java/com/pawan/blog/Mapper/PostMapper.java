@@ -1,5 +1,7 @@
 package com.pawan.blog.Mapper;
 
+import com.pawan.blog.domain.CreatePostRequest;
+import com.pawan.blog.domain.dtos.CreatePostRequestDto;
 import com.pawan.blog.domain.dtos.PostDto;
 import com.pawan.blog.domain.entities.Post;
 import org.mapstruct.Mapper;
@@ -14,4 +16,6 @@ public interface PostMapper {
     @Mapping(target = "category", source = "category")
     @Mapping(target = "tags", source = "tags")
     PostDto toDto(Post post);
+
+    CreatePostRequest toCreatePostRequest(CreatePostRequestDto dto);
 }
