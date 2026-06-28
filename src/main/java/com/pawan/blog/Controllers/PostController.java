@@ -4,11 +4,15 @@ import com.pawan.blog.Mapper.PostMapper;
 import com.pawan.blog.Services.PostService;
 import com.pawan.blog.Services.UserService;
 import com.pawan.blog.domain.CreatePostRequest;
+import com.pawan.blog.domain.UpdatePostRequest;
 import com.pawan.blog.domain.dtos.CreatePostRequestDto;
 import com.pawan.blog.domain.dtos.PostDto;
+import com.pawan.blog.domain.dtos.UpdatePostRequestDto;
 import com.pawan.blog.domain.entities.Post;
 import com.pawan.blog.domain.entities.User;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +47,7 @@ public class PostController {
 
     @PostMapping
     public ResponseEntity<PostDto> createPost(
-            @RequestBody CreatePostRequestDto createPostRequestDto,
+            @Valid @RequestBody CreatePostRequestDto createPostRequestDto,
             @RequestAttribute UUID userId){
         User loggedInUser = userService.getUserById(userId);
         CreatePostRequest createPostRequest = postMapper.toCreatePostRequest(createPostRequestDto);
@@ -52,4 +56,14 @@ public class PostController {
         return new ResponseEntity<>(createdPostDto, HttpStatus.CREATED);
     }
 
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<PostDto> updatePost(
+            @PathVariable UUID id,
+            @Valid @RequestBody UpdatePostRequestDto updatePostRequestDto){
+        UpdatePostRequest updatePostRequest = postMapper.toUpdatePostRequest(updatePostRequestDto);
+
+        Post updatePost = postService.updatePost(id, updatePostRequest);
+        PostDto updatedPostDto = postMapper.toDto(updatePost);
+        return ResponseEntity.ok(updatedPostDto);
+    }
 }
