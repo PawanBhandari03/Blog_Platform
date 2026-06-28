@@ -10,8 +10,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring",
-        unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(
+        componentModel = "spring",
+        unmappedTargetPolicy = ReportingPolicy.IGNORE
+)
 public interface PostMapper {
 
     @Mapping(target = "author", source = "author")
@@ -21,5 +23,7 @@ public interface PostMapper {
 
     CreatePostRequest toCreatePostRequest(CreatePostRequestDto dto);
 
+    @Mapping(source = "status", target = "status")
+    @Mapping(source = "tagIds", target = "tagIds")
     UpdatePostRequest toUpdatePostRequest(UpdatePostRequestDto dto);
 }

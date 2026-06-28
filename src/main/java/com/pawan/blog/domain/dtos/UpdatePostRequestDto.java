@@ -34,9 +34,9 @@ public class UpdatePostRequestDto {
 
     @Builder.Default
     @Size(max = 10, message = "Maximum {max} tags allowed")
-    private Set<UUID> tagsIds = new HashSet<>();
+    private Set<UUID> tagIds = new HashSet<>();
 
     @NotNull(message = "Status is required")
-    private PostStatus postStatus;
+    private PostStatus status;
 }
 
