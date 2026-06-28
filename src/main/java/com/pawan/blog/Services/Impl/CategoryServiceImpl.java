@@ -47,4 +47,18 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findById(id)
                 .orElseThrow(()-> new EntityNotFoundException("Category not found with id" + id));
     }
+
+    @Override
+    @Transactional
+    public Category updateCategory(UUID id, Category category) {
+
+        Category existingCategory = categoryRepository.findById(id)
+                .orElseThrow(() ->
+                        new EntityNotFoundException(
+                                "Category not found with id " + id));
+
+        existingCategory.setName(category.getName());
+
+        return categoryRepository.save(existingCategory);
+    }
 }
