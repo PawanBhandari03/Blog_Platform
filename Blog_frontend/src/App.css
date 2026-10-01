@@ -276,13 +276,12 @@ html, body, #root {
   color: white;
   border: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 1px 4px rgba(79, 70, 229, 0.2);
 }
 
 .btn-accent:hover {
   background: var(--accent-hover);
-  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.35);
-  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
 }
 
 .btn-accent-secondary {
@@ -315,7 +314,6 @@ html, body, #root {
 .theme-toggle:hover {
   background: var(--accent);
   color: white;
-  transform: rotate(15deg);
 }
 
 /* ───── Animations ───── */
@@ -422,6 +420,62 @@ html, body, #root {
 
 .ProseMirror:focus {
   outline: none;
+}
+
+/* ───── Article / post body text ───── */
+.prose p {
+  margin-bottom: 1.1em;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  color: var(--text-heading);
+  font-weight: 700;
+  margin: 1.5em 0 0.5em;
+}
+
+.prose h1 { font-size: 1.875rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
+
+.prose ul { list-style: disc; padding-left: 1.5em; margin-bottom: 1.1em; }
+.prose ol { list-style: decimal; padding-left: 1.5em; margin-bottom: 1.1em; }
+.prose strong { color: var(--text-heading); font-weight: 600; }
+
+/* ───── Editor surface & toolbar ───── */
+.editor-surface {
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-input);
+  border-radius: 12px;
+}
+
+.editor-surface:focus-within {
+  border-color: var(--accent);
+}
+
+.editor-toolbar {
+  background: var(--bg-toolbar);
+  border: 1px solid var(--border-toolbar);
+}
+
+.toolbar-divider {
+  background: var(--divider-color);
+}
+
+/* ───── Error message box ───── */
+.error-box {
+  background: var(--bg-error);
+  border: 1px solid var(--border-error);
+  color: var(--text-error);
+}
+
+/* ───── Loading skeleton placeholders ───── */
+.skeleton-light {
+  background: linear-gradient(90deg, var(--bg-skeleton-1) 25%, var(--bg-skeleton-2) 50%, var(--bg-skeleton-1) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
 }
 
 /* ───── Table overrides ───── */

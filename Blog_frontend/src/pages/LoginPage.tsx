@@ -31,7 +31,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: '#f0f4ff' }}>
+    <div className="min-h-[70vh] flex items-center justify-center relative overflow-hidden">
       {/* Decorative background orbs */}
       <div className="bg-orb bg-orb-purple" style={{ width: '400px', height: '400px', top: '-100px', right: '-100px', position: 'absolute' }}></div>
       <div className="bg-orb bg-orb-blue" style={{ width: '300px', height: '300px', bottom: '-80px', left: '-80px', position: 'absolute' }}></div>
@@ -84,10 +84,10 @@ const LoginPage = () => {
           </div>
 
           {error && (
-            <div className="rounded-xl p-4" style={{ background: '#fef2f2', border: '1px solid #fecaca' }}>
+            <div className="rounded-xl p-4 error-box">
               <div className="flex">
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-red-600">{error}</h3>
+                  <h3 className="text-sm font-medium">{error}</h3>
                 </div>
               </div>
             </div>

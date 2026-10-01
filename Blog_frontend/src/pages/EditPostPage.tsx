@@ -120,7 +120,7 @@ const EditPostPage: React.FC = () => {
 
         <CardBody>
           {error && (
-            <div className="mb-4 p-4 text-red-600 rounded-xl" style={{ background: '#fef2f2', border: '1px solid #fecaca' }}>
+            <div className="mb-4 p-4 rounded-xl error-box">
               {error}
             </div>
           )}

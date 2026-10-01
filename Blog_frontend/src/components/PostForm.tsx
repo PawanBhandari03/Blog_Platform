@@ -85,7 +85,7 @@ const PostForm: React.FC<PostFormProps> = ({
     content: initialPost?.content || '',
     editorProps: {
       attributes: {
-        class: 'prose max-w-none focus:outline-none min-h-[400px] px-4 py-3 rounded-lg border border-indigo-100 text-theme-primary',
+        class: 'prose max-w-none focus:outline-none min-h-[400px] px-4 py-3 editor-surface text-theme-primary',
       },
     },
   });
@@ -166,7 +166,7 @@ const PostForm: React.FC<PostFormProps> = ({
           </div>
 
           <div className="space-y-2">
-            <div className="p-2 rounded-xl mb-2 flex gap-2 flex-wrap items-center" style={{ background: '#eef2ff', border: '1px solid #e0e7ff' }}>
+            <div className="p-2 rounded-xl mb-2 flex gap-2 flex-wrap items-center editor-toolbar">
               <Dropdown>
                 <DropdownTrigger>
                   <Button
@@ -212,7 +212,7 @@ const PostForm: React.FC<PostFormProps> = ({
                 <Italic size={16} />
               </Button>
 
-              <div className="h-6 w-px mx-2" style={{ background: '#c7d2fe' }} />
+              <div className="h-6 w-px mx-2 toolbar-divider" />
 
               <Button
                 size="sm"
@@ -233,7 +233,7 @@ const PostForm: React.FC<PostFormProps> = ({
                 <ListOrdered size={16} />
               </Button>
 
-              <div className="h-6 w-px mx-2" style={{ background: '#c7d2fe' }} />
+              <div className="h-6 w-px mx-2 toolbar-divider" />
 
               <Button
                 size="sm"

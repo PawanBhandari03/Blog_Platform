@@ -76,7 +76,7 @@ const PostList: React.FC<PostListProps> = ({
 
   if (error) {
     return (
-      <div className="p-4 text-red-600 rounded-xl" style={{ background: '#fef2f2', border: '1px solid #fecaca' }}>
+      <div className="p-4 rounded-xl error-box">
         {error}
       </div>
     );
@@ -118,7 +118,7 @@ const PostList: React.FC<PostListProps> = ({
         <>
           <div className="space-y-4">
             {posts?.map((post) => (
-              <Card key={post.id} className="w-full p-2 theme-card cursor-pointer transition-all duration-300 hover:scale-[1.01]" isPressable={true} onPress={() => navToPostPage(post)}>
+              <Card key={post.id} className="w-full p-2 theme-card cursor-pointer transition-all duration-300" isPressable={true} onPress={() => navToPostPage(post)}>
                 <CardHeader className="flex gap-3">                 
                     <div className='flex flex-col'>
                     <h2 className="text-xl font-bold text-left text-theme-heading">
